@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
-import { useCaseCreateProduct } from './product/create-usecase';
+import { UseCaseCreateProduct } from './product/create-usecase';
+import { UseCaseListProduct } from './product/list-usecase';
 import { RepositoryModule } from 'src/infra/database/repositories/repository.module';
 
 const useCases = [
   //products
-  useCaseCreateProduct,
+  UseCaseCreateProduct,
+  UseCaseListProduct,
 ];
 
 @Module({

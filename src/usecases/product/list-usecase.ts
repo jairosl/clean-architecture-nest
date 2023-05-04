@@ -1,18 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { CreateProductDto } from 'src/domain/dtos/products/create-product.dto';
+import { Product } from 'src/domain/entities/product';
 import {
   ProductRepositoryToken,
   IProductRepository,
 } from '../../domain/repositories/productRepository';
 
 @Injectable()
-export class UseCaseCreateProduct {
+export class UseCaseListProduct {
   constructor(
     @Inject(ProductRepositoryToken)
     private readonly productRepository: IProductRepository,
   ) {}
 
-  async execute(product: CreateProductDto): Promise<void> {
-    await this.productRepository.save(product);
+  async execute(): Promise<Product[]> {
+    return this.productRepository.listAll();
   }
 }
