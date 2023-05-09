@@ -7,8 +7,9 @@ export class ProductRepositoryInMemory implements IProductRepository {
   private products: Product[] = [];
 
   async save(product: CreateProductDto) {
-    this.products.push({ id: randomUUID(), ...product });
-    return;
+    const newProduct = { id: randomUUID(), ...product };
+    this.products.push(newProduct);
+    return newProduct;
   }
 
   async listAll(): Promise<Product[]> {

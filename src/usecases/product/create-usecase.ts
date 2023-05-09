@@ -4,6 +4,7 @@ import {
   ProductRepositoryToken,
   IProductRepository,
 } from '../../domain/repositories/productRepository';
+import { Product } from 'src/domain/entities/product';
 
 @Injectable()
 export class UseCaseCreateProduct {
@@ -12,7 +13,7 @@ export class UseCaseCreateProduct {
     private readonly productRepository: IProductRepository,
   ) {}
 
-  async execute(product: CreateProductDto): Promise<void> {
-    await this.productRepository.save(product);
+  async execute(product: CreateProductDto): Promise<Product> {
+    return await this.productRepository.save(product);
   }
 }
