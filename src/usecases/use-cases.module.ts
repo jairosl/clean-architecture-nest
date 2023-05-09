@@ -4,6 +4,8 @@ import { UseCaseListProduct } from './product/list-all-usecase';
 import { UseCaseFindOneProduct } from './product/find-one-usecase';
 import { UseCaseUpdateProduct } from './product/updated-usecase';
 import { RepositoryModule } from 'src/infra/database/repositories/repository.module';
+import { UseCaseCreateCart } from './cart/create-usecase';
+import { UseCaseShowCart } from './cart/show-usecase';
 
 const useCases = [
   //products
@@ -11,6 +13,10 @@ const useCases = [
   UseCaseListProduct,
   UseCaseFindOneProduct,
   UseCaseUpdateProduct,
+
+  //cart
+  UseCaseCreateCart,
+  UseCaseShowCart,
 ];
 
 @Module({
