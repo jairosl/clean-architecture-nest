@@ -25,7 +25,7 @@ export class ProductRepositoryInMemory implements IProductRepository {
       if (current.id === id) {
         return {
           ...current,
-          product,
+          ...product,
         };
       }
       return current;
